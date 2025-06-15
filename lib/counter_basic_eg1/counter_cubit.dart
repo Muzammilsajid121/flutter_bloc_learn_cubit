@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 
 class CounterCubit extends Cubit<int> {
@@ -5,8 +6,7 @@ class CounterCubit extends Cubit<int> {
 
   void increment() => emit(state + 1); //Emit karne se UI ko notify milta hai, aur BlocBuilder/CubitBuilder use update karta hai.
   void decrement() => emit(state - 1);
-  void minus() => emit(state-3);
-
+}
 
 // | Feature                       | Explanation                                                                        |
 // | ----------------------------- | ---------------------------------------------------------------------------------- |
@@ -17,4 +17,3 @@ class CounterCubit extends Cubit<int> {
 
 
 
-}

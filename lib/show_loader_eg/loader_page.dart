@@ -12,7 +12,7 @@ class LoaderPage extends StatefulWidget {
 class _LoaderPageState extends State<LoaderPage> {
   @override
   Widget build(BuildContext context) {
-    print('whole screen updated');
+    debugPrint('whole screen updated');
     return  Scaffold(
       appBar: AppBar(title: Text('Showing Loader With Bloc'), centerTitle: true,),
       body: BlocBuilder <LaoderCubit, String>(
