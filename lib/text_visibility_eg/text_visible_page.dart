@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_learn/text_visibility_eg/text_visible_cubit.dart';
+import 'package:flutter_bloc_learn/widgets/custom_appbar.dart';
 
-class TextVisiblePage extends StatefulWidget {
-  const TextVisiblePage({super.key});
 
-  @override
-  State<TextVisiblePage> createState() => _TextVisiblePageState();
-}
+class TextVisiblePage extends StatelessWidget {
+   const TextVisiblePage({super.key});
 
-class _TextVisiblePageState extends State<TextVisiblePage> {
+
   @override
   Widget build(BuildContext context) {
-    bool isTextVisible = false;
-    return  Scaffold(
-      appBar: AppBar(
-        title: Text('TEXT VISIBILITY'),
-      ),
-      body: Column(
-        children: [
-         isTextVisible!=false?  Text('Text is visible now'): Text(''),
-          ElevatedButton(
-            onPressed: (){
-              setState(() {
-                isTextVisible != isTextVisible;
-              });
-              
-              
-            },
-            child: Text('Make it Unvisible'))
-        ],
-      ),
-    );
+    debugPrint('build once');
+    return  BlocBuilder<TextVisibleCubit, bool>(
+      builder: (context, state) {
+        return Scaffold(
+        appBar: CustomAppBar(  title: 'TEXT VISIBILITY', ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            
+             state?  Text('Text is visible now'): Text(''),
+             SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: (){
+                  context.read<TextVisibleCubit>().showNHideText();
+                    // isTextVisible =! isTextVisible;                  
+                },
+                child: Text( state? 'Make it Unvisible' : 'Make It Visible'))
+            ],
+          ),
+        ),
+      );
+    
+      },
+       );
   }
 }

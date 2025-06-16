@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_learn/counter_basic_eg1/counter_page.dart';
 import 'package:flutter_bloc_learn/show_loader_eg/laoder_cubit.dart';
 import 'package:flutter_bloc_learn/text_toogle_eg/text_toggle_cubit.dart';
+import 'package:flutter_bloc_learn/text_visibility_eg/text_visible_cubit.dart';
 import 'package:flutter_bloc_learn/text_visibility_eg/text_visible_page.dart';
 import 'package:flutter_bloc_learn/theme_changer/theme_cubit.dart';
 
@@ -22,10 +23,13 @@ class MyApp extends StatelessWidget {
         BlocProvider<LaoderCubit>(create: (_) => LaoderCubit()),
         BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
         BlocProvider<TextToggleCubit>(create: (_) => TextToggleCubit()),
+        BlocProvider<TextVisibleCubit>(create: (_) => TextVisibleCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: CounterPage(),
+        home: 
+        TextVisiblePage()
+        // CounterPage(),
       ),
     );
   }
