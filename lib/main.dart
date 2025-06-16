@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //multi provider should be wrap with material app
+    //--multi provider should be wrap with material app
     return MultiBlocProvider(
       providers: [
         BlocProvider<CounterCubit>(create: (_) => CounterCubit()),
